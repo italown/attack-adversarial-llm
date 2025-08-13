@@ -1,0 +1,5 @@
+/tmp/slurmd/job25558/slurm_script: line 13: nvidea-smi: command not found
+Traceback (most recent call last):
+  File "/home/CIN/mefc/deteccao/attack-adversarial-llm/harmful_strings.py", line 4, in <module>
+    log = Log("LOGS")
+TypeError: Log.__init__() missing 1 required positional argument: 'logger_name'

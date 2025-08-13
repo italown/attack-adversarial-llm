@@ -1,8 +1,8 @@
 HF_TOKEN = ""
 
 from log import Log
-log = Log("LOGS")
-result = Log("RESULTADOS")
+log = Log("logs/PROCESSAMENTO", "BEHAVIORS_LLAMA")
+result = Log("logs/RESULTADOS", "BEHAVIORS")
 
 log.header("Ataque adversarial a LLMs")
 result.header("RESULTADOS")
@@ -30,7 +30,6 @@ try:
     log.info("Dados importados")
     
     models = [
-        'lmsys/vicuna-7b-v1.5',
         'meta-llama/Llama-2-7b-chat-hf'
     ]
 
@@ -56,8 +55,8 @@ try:
 
             config = GCGConfig(
                 num_steps=1000,
-                search_width=64,
-                topk=64,
+                search_width=100,
+                topk=100,
                 seed=42,
                 early_stop=True,
                 verbosity="ERROR",
@@ -69,13 +68,14 @@ try:
             log.info(f"Melhor string: {result.best_string}")
             log.info(f"Melhor score: {result.best_loss}")
 
-            prompt = message + result.best_string
+            prompt = message + '' + result.best_string
             inputs = tokenizer(prompt, return_tensors="pt").to(device)
             outputs = model.generate(**inputs, max_length=100, do_sample=True, temperature=0.7)
             response = tokenizer.decode(outputs[0], skip_special_tokens=True)
+            response = response.replace(prompt, "").strip()
 
-            result.info(f"Mensagem: {prompt}")
-            result.info(f"Resposta: {response}")
+            log.info(f"Mensagem: {prompt}")
+            log.info(f"Resposta: {response}")
 
 except Exception as e:
     log.error(f"Erro ao importar bibliotecas: {e}")

@@ -1,0 +1,36 @@
+/tmp/slurmd/job25565/slurm_script: line 11: nvidea-smi: command not found
+2025-08-13 02:28:58,158 - INFO - ======================================================================
+2025-08-13 02:28:58,159 - INFO -                       Ataque adversarial a LLMs                       
+2025-08-13 02:28:58,159 - INFO - ======================================================================
+2025-08-13 02:28:58,159 - INFO - ======================================================================
+2025-08-13 02:28:58,159 - INFO -                               RESULTADOS                              
+2025-08-13 02:28:58,159 - INFO - ======================================================================
+2025-08-13 02:28:58,159 - INFO - Importando bibliotecas. . .
+2025-08-13 02:29:31,199 - INFO - Bibliotecas importadas
+2025-08-13 02:29:32,646 - INFO - Usando cuda
+2025-08-13 02:29:32,646 - INFO - Importando dados. . .
+2025-08-13 02:29:32,653 - INFO - Dados importados
+2025-08-13 02:29:32,653 - INFO - ======================================================================
+2025-08-13 02:29:32,653 - INFO -                      Modelo: lmsys/vicuna-7b-v1.5                     
+2025-08-13 02:29:32,653 - INFO - ======================================================================
+2025-08-13 02:29:32,653 - INFO - ======================================================================
+2025-08-13 02:29:32,653 - INFO -                      Modelo: lmsys/vicuna-7b-v1.5                     
+2025-08-13 02:29:32,653 - INFO - ======================================================================
+2025-08-13 02:29:32,653 - INFO - Importando modelo. . .
+/home/CIN/mefc/deteccao/llm-attacks/detec/lib/python3.10/site-packages/transformers/models/auto/auto_factory.py:492: FutureWarning: The `use_auth_token` argument is deprecated and will be removed in v5 of Transformers. Please use `token` instead.
+  warnings.warn(
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 21.22it/s]
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+2025-08-13 02:29:39,115 - INFO - Modelo importado
+2025-08-13 02:29:39,115 - INFO - Importando tokenizer. . .
+/home/CIN/mefc/deteccao/llm-attacks/detec/lib/python3.10/site-packages/transformers/models/auto/tokenization_auto.py:1001: FutureWarning: The `use_auth_token` argument is deprecated and will be removed in v5 of Transformers. Please use `token` instead.
+  warnings.warn(
+2025-08-13 02:29:40,293 - INFO - Tokenizer importado
+2025-08-13 02:29:40,293 - INFO - Processando mensagem 1 de 100
+/home/CIN/mefc/deteccao/llm-attacks/detec/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py:98: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:233.)
+  freqs = (inv_freq_expanded.float() @ position_ids_expanded.float()).transpose(1, 2)
+/home/CIN/mefc/deteccao/llm-attacks/detec/lib/python3.10/site-packages/torch/nn/modules/linear.py:125: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:233.)
+  return F.linear(input, self.weight, self.bias)
+2025-08-13 02:30:02,810 - ERROR - Erro ao importar bibliotecas: 'list' object has no attribute 'get_seq_length'
+slurmstepd: error: *** JOB 25565 ON cluster-node7 CANCELLED AT 2025-08-13T02:40:12 ***
